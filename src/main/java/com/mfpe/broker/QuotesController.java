@@ -8,6 +8,7 @@ import io.micronaut.http.HttpStatus;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
+import io.swagger.v3.oas.annotations.Operation;
 
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ public class QuotesController {
         this.store = store;
     }
 
+    @Operation(summary = "returns a quote for the given symbol.")
     @Get("/{symbol}")
     public HttpResponse getQuote(@PathVariable String symbol) {
         Optional<Quote> maybeQuote = store.fetchQuote(symbol);
