@@ -1,5 +1,6 @@
 package com.mfpe;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.micronaut.http.client.RxHttpClient;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.runtime.EmbeddedApplication;
@@ -43,5 +44,11 @@ class MnStockBrokerTest {
         var result = client.toBlocking().retrieve("/en");
         assertEquals(result, "Hola soy en");
     }
+
+//    @Test
+//    void testGreetingAsJson(){
+//        var result = client.toBlocking().retrieve("/json", ObjectNode.class);
+//        assertEquals(result.toString(), "{\"my_text\":\"Hello World\",\"id\":1,\"time_utc\":\"2021-02-25T02:33:28.467463300Z\"}");
+//    }
 
 }

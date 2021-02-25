@@ -27,3 +27,15 @@ hello:
     greeting:
       de: "Hola soy de"
       en: "Hola soy en"
+
+jackson:
+  # property-naming-strategy: SNAKE_CASE
+  serialization:
+    writeDatesAsTimestamps: false
+    writeDatesWithZoneId: true
+    writeDateTimestampsAsNanoseconds: false
+  generator:
+    writeNumbersAsStrings: false
+    writeBigDecimalAsPlain: false
+  deserialization:
+    failOnUnknownProperties: false
