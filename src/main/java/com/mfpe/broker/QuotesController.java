@@ -8,10 +8,13 @@ import io.micronaut.http.HttpStatus;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
+import io.micronaut.security.annotation.Secured;
+import io.micronaut.security.rules.SecurityRule;
 import io.swagger.v3.oas.annotations.Operation;
 
 import java.util.Optional;
 
+@Secured(SecurityRule.IS_ANONYMOUS)
 @Controller("/quotes")
 public class QuotesController {
 

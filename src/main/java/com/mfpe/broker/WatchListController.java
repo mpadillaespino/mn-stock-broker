@@ -4,9 +4,12 @@ import com.mfpe.broker.model.WatchList;
 import com.mfpe.broker.store.InMemoryAccountStore;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
+import io.micronaut.security.annotation.Secured;
+import io.micronaut.security.rules.SecurityRule;
 
 import java.util.UUID;
 
+@Secured(SecurityRule.IS_AUTHENTICATED)
 @Controller("/account/watchlist")
 public class WatchListController {
 
