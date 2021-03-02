@@ -36,6 +36,17 @@ hello:
       de: "Hola soy de"
       en: "Hola soy en"
 
+flyway:
+  datasources:
+    default:
+      enabled: true
+      clean-schema: false
+      url: ${PG_JDBC_URL:`jdbc:postgresql://localhost:5432/mn-stock-broker`}
+      user: ${PG_USERNAME:postgres}
+      password: ${PG_PASSWORD:secret}
+      schemas: mn
+      default-schema: mn
+
 jackson:
   # property-naming-strategy: SNAKE_CASE
   serialization:
