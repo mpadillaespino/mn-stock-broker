@@ -47,6 +47,24 @@ flyway:
       schemas: mn
       default-schema: mn
 
+datasources:
+  default:
+    url: ${PG_JDBC_URL:`jdbc:postgresql://localhost:5432/mn-stock-broker`}
+    username: ${PG_USERNAME:postgres}
+    password: ${PG_PASSWORD:secret}
+    driver-class-name: org.postgresql.Driver
+    schema-generate: NONE
+    dialect: POSTGRES
+
+#micronaut-data-jpa
+jpa:
+  default:
+    packages-to-scan:
+      - "com.mfpe.broker.persistence"
+    properties:
+      hibernate:
+        show_sql: false
+
 jackson:
   # property-naming-strategy: SNAKE_CASE
   serialization:
