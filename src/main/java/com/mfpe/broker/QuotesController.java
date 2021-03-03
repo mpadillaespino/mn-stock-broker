@@ -16,6 +16,7 @@ import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
 import io.swagger.v3.oas.annotations.Operation;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -78,6 +79,16 @@ public class QuotesController {
     @Get("/jpa/ordered/asc")
     public List<QuoteDTO> orderedAsc(){
         return quotesRepository.listOrderByVolumeAsc();
+    }
+
+    @Get("/jpa/volume/{volume}")
+    public List<QuoteDTO> volumeFilter(@PathVariable BigDecimal volume){
+        return quotesRepository.findByVolumeGreaterThan(volume);
+    }
+
+    @Get("/jpa/volume-ordered/{volume}")
+    public List<QuoteDTO> volumeFilterOrdered(@PathVariable BigDecimal volume){
+        return quotesRepository.findByVolumeGreaterThanOrderByVolumeAsc(volume);
     }
 
 }

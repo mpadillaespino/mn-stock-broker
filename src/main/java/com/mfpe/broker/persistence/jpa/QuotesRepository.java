@@ -3,6 +3,7 @@ package com.mfpe.broker.persistence.jpa;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.repository.CrudRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,5 +18,9 @@ public interface QuotesRepository extends CrudRepository<QuoteEntity, Integer> {
     // Ordering
     List<QuoteDTO> listOrderByVolumeDesc();
     List<QuoteDTO> listOrderByVolumeAsc();
+
+    // Filter
+    List<QuoteDTO> findByVolumeGreaterThan(BigDecimal volume);
+    List<QuoteDTO> findByVolumeGreaterThanOrderByVolumeAsc(BigDecimal volume);
 
 }
