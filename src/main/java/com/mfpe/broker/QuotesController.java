@@ -2,6 +2,7 @@ package com.mfpe.broker;
 
 import com.mfpe.broker.error.CustomError;
 import com.mfpe.broker.model.Quote;
+import com.mfpe.broker.persistence.jpa.QuoteDTO;
 import com.mfpe.broker.persistence.jpa.QuoteEntity;
 import com.mfpe.broker.persistence.jpa.QuotesRepository;
 import com.mfpe.broker.persistence.jpa.SymbolEntity;
@@ -70,12 +71,12 @@ public class QuotesController {
     }
 
     @Get("/jpa/ordered/desc")
-    public List<QuoteEntity> ordered(){
+    public List<QuoteDTO> ordered(){
         return quotesRepository.listOrderByVolumeDesc();
     }
 
     @Get("/jpa/ordered/asc")
-    public List<QuoteEntity> orderedAsc(){
+    public List<QuoteDTO> orderedAsc(){
         return quotesRepository.listOrderByVolumeAsc();
     }
 
